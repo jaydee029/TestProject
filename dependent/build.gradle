@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'dev.jaydee029'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/jaydee029/TestProject")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+}
+
+dependencies {
+    implementation 'dev.jaydee029:helloworld:0.1.0'
+}
