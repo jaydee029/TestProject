@@ -1,7 +1,7 @@
 # TestProject
 
 This project was created as a proof of concept for the issue described here galasa-dev/projectmanagement#1926 .
-My observations are as follows:-
+With a limited knowledge of java/gradle my observations are as follows:-
 1) Created a sample Java/Gradle project that just does a Hello World starting with the version 0.1.0-SNAPSHOT
 2) Created a basic workflow that attempts to publish this project to the GitHub Packages Maven Registry
 
