@@ -30,6 +30,8 @@ jobs:
                 GITHUB_TOKEN: ${{ github.token }}
               run: |
                 gradle -b helloworld/build.gradle build publish --scan 
-            
-            - name: Run dependent worflow
-              uses: ./.github/workflows/dependent.yaml
+    
+    dependent-workflow:
+            name: Run dependent worflow
+            needs: build-gradle
+            uses: ./.github/workflows/dependent.yaml
