@@ -10,12 +10,12 @@ repositories {
     maven {
         url = uri("https://maven.pkg.github.com/jaydee029/TestProject")
         credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
+            username = project.findProperty("MAVENUSERNAME") ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("MAVENPASSWORD") ?: System.getenv("GITHUB_TOKEN")
         }
     }
 }
 
 dependencies {
-    implementation 'dev.jaydee029:helloworld:0.1.0'
+    implementation 'dev.jaydee029:helloworld:0.1.0-SNAPSHOT'
 }
