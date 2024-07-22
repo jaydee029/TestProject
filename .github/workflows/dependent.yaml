@@ -1,0 +1,30 @@
+name: dependent build
+
+on:
+    workflow_call:
+
+jobs:
+    build-gradle:
+        name: build and Test dependent project
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+            
+            - name: Setup JDK 
+              uses: actions/setup-java@v4
+              with:
+                java-version: '11'
+                distribution: 'semeru'
+            
+            - name: Setup Gradle
+              uses: gradle/actions/setup-gradle@v3
+              with:
+                gradle-version: 6.9.2
+  
+            - name: Test and Build dependent project
+              env:
+                GITHUB_ACTOR: ${{ github.actor}}
+                GITHUB_TOKEN: ${{ github.token }}
+              run: |
+                gradle -b dependent/build.gradle build --scan 
