@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'dev.jaydee029'
-version = '0.1.0'
+version = project.findProperty('version') ?: '0.1.0'
 
 repositories {
     mavenCentral()
