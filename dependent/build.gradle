@@ -17,5 +17,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.jaydee029:helloworld:0.2.0+'
+    implementation 'dev.jaydee029:helloworld:0.1.0+'
 }
