@@ -29,7 +29,7 @@ jobs:
                 GITHUB_ACTOR: ${{ github.actor}}
                 GITHUB_TOKEN: ${{ github.token }}
               run: |
-                gradle -b helloworld/build.gradle build publish --scan -Dversion=0.2.0-SNAPSHOT
+                gradle -b helloworld/build.gradle build publish --scan -Pversion=0.2.0-SNAPSHOT
     
     dependent-workflow:
             name: Run dependent worflow
