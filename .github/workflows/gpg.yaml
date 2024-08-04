@@ -2,16 +2,6 @@ name: Maven gpg setup
 
 on:
     workflow_call:
-     inputs:
-      MAVEN_SETTINGS_XML:
-        required: true
-        type: string
-      GPG_PASSPHRASE:
-        required: true
-        type: string
-      GPG_KEY_BASE64:
-        required: true
-        type: string
 
 jobs:
     setup-gpg-and-settings-xml:
@@ -25,15 +15,15 @@ jobs:
 
             - name: Copy settings.xml
               run : |
-                echo ${{inputs.MAVEN_SETTINGS_XML}} > /home/runner/work/secrets/settings.xml
+                echo ${{secrets.MAVEN_SETTINGS_XML}} > /home/runner/work/secrets/settings.xml
 
             - name: Copy GPG passphrase
               run : |
-                echo ${{inputs.GPG_PASSPHRASE}} > /home/runner/work/secrets/passphrase.file
+                echo ${{secrets.GPG_PASSPHRASE}} > /home/runner/work/secrets/passphrase.file
 
             - name: Copy GPG key
               run : |
-                echo ${{inputs.GPG_KEY_BASE64}} |  base64 --decode > /home/runner/work/secrets/galasa.gpg
+                echo ${{secrets.GPG_KEY_BASE64}} |  base64 --decode > /home/runner/work/secrets/galasa.gpg
                 
             # Set up Maven GPG directory
             - name: Make GPG home directory
