@@ -21,7 +21,6 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_KEY_BASE64: ${{ secrets.GPG_KEY }}
 
-        
       - name: print settings.xml
         run: |
          cat /home/runner/work/gpg/settings.xml
