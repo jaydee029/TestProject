@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup GPG Secrets and custom settings.xml
-        uses: ./actions/gpg-sign
+        uses: .github/actions/gpg-sign
         with:
           MAVEN_SETTINGS_XML: ${{ secrets.MAVEN_SETTINGS_XML }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
