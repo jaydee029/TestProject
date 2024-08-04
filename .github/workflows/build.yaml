@@ -1,0 +1,27 @@
+name: Main build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+
+jobs:
+  build-wrapping:
+    name: Build Maven source code and Docker image for development Maven registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup GPG Secrets and custom settings.xml
+        uses: ./.github/actions/gpg-sign
+        with:
+          MAVEN_SETTINGS_XML: ${{ secrets.MAVEN_SETTINGS_XML }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_KEY_BASE64: ${{ secrets.GPG_KEY }}
+
+      - name: print settings.xml
+        run: |
+         echo "test"
+         cat /home/runner/work/gpg/settings.xml
