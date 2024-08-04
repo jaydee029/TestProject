@@ -23,4 +23,5 @@ jobs:
 
       - name: print settings.xml
         run: |
+         echo "test"
          cat /home/runner/work/gpg/settings.xml
