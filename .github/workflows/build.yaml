@@ -16,13 +16,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'semeru'
-          cache: maven
 
       - name: Setup GPG Secrets and custom settings.xml
         uses: ./.github/workflows/gpg.yaml
