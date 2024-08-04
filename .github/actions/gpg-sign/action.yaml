@@ -18,7 +18,7 @@ runs:
       shell: bash
 
     - name: Copy settings.xml
-      run: echo "${{ inputs.MAVEN_SETTINGS_XML }}"" > /home/runner/work/secrets/settings.xml
+      run: echo "${{ inputs.MAVEN_SETTINGS_XML }}" > /home/runner/work/secrets/settings.xml
       shell: bash
 
     - name: Copy GPG passphrase
