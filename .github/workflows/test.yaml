@@ -1,0 +1,21 @@
+name: Test kubetcl step
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    kubetcl-build:
+        name: Testing kubectl step
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: installing using curl and copying the binary
+              run: |
+               mkdir -p /opt/k8s/bin
+               curl -L https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl -o /opt/k8s/bin/kubectl
+               chmod +x /opt/k8s/bin/kubectl
+               cp -vr /opt/k8s/bin/kubectl ${{github.workspace}}/dependent
+               ls
+
+               
